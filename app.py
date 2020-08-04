@@ -3,17 +3,25 @@ import os
 import json
 import requests
 import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
+from matplotlib import font_manager as fm, pyplot as plt, cm, rcParams
 from matplotlib.colors import Normalize
 from flask import Flask, request, send_file
 from collections import OrderedDict
 from matplotlib import rcParams
 from datetime import datetime
 
+# prevent gui
 matplotlib.use('Agg')
-rcParams.update({'figure.autolayout': True}) 
 
+# load fonts
+font_path = os.path.join('fonts','Open_Sans', 'OpenSans-Light.ttf')
+font_prop = fm.FontProperties(fname=font_path)
+rcParams['font.family'] = font_prop.get_name()
+
+# prevent clipped labels
+rcParams['figure.autolayout'] = True
+
+# flask
 app = Flask(__name__)
 
 # https://api.github.com/users/yohanesgultom/repos?type=owner&sort=updated&direction=desc
@@ -52,13 +60,28 @@ def github_forks(username):
         x.insert(0, repo['name'])
         y.insert(0, repo['forks'])
 
-    # draw plot
+    # plot styling
     cmap = cm.get_cmap('jet')
-    norm = Normalize()
+    norm = Normalize()        
     plt.figure(figsize=(w, h))
     plt.tight_layout()
-    plt.title(title + '\n' + username)
-    plt.barh(x, y, color=cmap(norm(y)))
+    ax = plt.subplot(111)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.grid(False)
+    ax.xaxis.set_visible(False)
+    ax.tick_params(bottom=False, left=False)
+    ax.tick_params(axis='y', colors='#555555')
+
+    # add value labels
+    for i, v in enumerate(y):
+        ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
+
+    # actual plot
+    ax.set_title(title)        
+    ax.barh(x, y, color=cmap(norm(y)))
 
     # save to io
     buf = io.BytesIO()
