@@ -34,13 +34,14 @@ def index():
 
 @app.route('/github/<username>/top-forks')
 def github_forks(username):
-    # get repos
-    repos = github.get_github_repos(username)
-
     # args
+    cmap_name = request.args.get('cmap', type=str, default='jet')
     top = request.args.get('top', type=int, default=5)
     w = request.args.get('w', type=int, default=8)
     h = request.args.get('h', type=int, default=3)
+
+    # get repos
+    repos = github.get_github_repos(username)
 
     # sort repos
     top_forked = sorted(repos, key=lambda x: x['forks'], reverse=True)
@@ -52,8 +53,8 @@ def github_forks(username):
         y.insert(0, repo['forks'])
 
     # plot styling
-    cmap = cm.get_cmap('jet')
-    norm = Normalize()        
+    cmap = cm.get_cmap(cmap_name)
+    norm = Normalize()
     plt.figure(figsize=(w, h))
     plt.tight_layout()
     ax = plt.subplot(111)
@@ -71,7 +72,7 @@ def github_forks(username):
         ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
 
     # actual plot
-    ax.set_title(title)        
+    ax.set_title(title, size='xx-large')        
     ax.barh(x, y, color=cmap(norm(y)))
 
     # save to io
@@ -80,8 +81,11 @@ def github_forks(username):
     buf.seek(0)
     return send_file(buf, mimetype='image/png')
 
-@app.route('/github/<username>/scatter-lang')
+@app.route('/github/<username>/bubble-lang')
 def github_lang(username):
+    # args
+    cmap_name = request.args.get('cmap', type=str, default='rainbow')
+
     # get repos
     repos = github.get_github_repos(username)
 
@@ -93,16 +97,17 @@ def github_lang(username):
     
     data = []
     labels = []
-    for k, v in sorted(lang_counter.items(), key=lambda x: x[1], reverse=True):
+    for k, v in sorted(lang_counter.items(), key=lambda x: x[1]):
         data.append(v)
         labels.append(k)
     n = len(labels)
 
     title = 'Languages'
     circles = circlify(data)
-    cmap = cm.get_cmap('jet')
-    norm = Normalize()       
-    colors = norm(data)
+    cmap = cm.get_cmap(cmap_name, n)
+    norm = Normalize()
+    colors_float = cmap(norm(np.array(data)))
+    colors = [matplotlib.colors.rgb2hex(c[:3]) for c in colors_float]
 
     # plot
     plt.figure()
@@ -114,20 +119,18 @@ def github_lang(username):
     ax.grid(False)    
     ax.yaxis.set_visible(False)
     ax.xaxis.set_visible(False)
-    ax.set_title(title)        
+    ax.set_title(title, size='xx-large', weight='bold')        
 
-    for circle, label, color in zip(circles, labels, colors):
-        x, y, r = circle.circle
-        ax.add_patch(pltp.Circle((x, y), r, alpha=0.2, linewidth=2))
-        ax.text(x, y, label)    
+    for c, label, color in zip(circles, labels, colors):
+        x, y, r = c.circle
+        ax.add_patch(pltp.Circle((x, y), r-0.007, alpha=0.7, linewidth=1, color=color))
+        label_wrap = label.replace(' ', '\n')
+        datum = c.ex['datum']
+        ax.text(x, y, f"{label_wrap}\n{datum}", ha='center', va='center', size=r*80, weight='bold', color='white')
 
     lim = max([max(abs(circle.circle.x) + circle.circle.r, abs(circle.circle.y) + circle.circle.r) for circle in circles])
     plt.xlim(-lim, lim)
     plt.ylim(-lim, lim)
-
-    # # add value labels
-    # for i, (x, y) in enumerate(zip(x, y)):
-    #     ax.text(x-0.01, y-0.01, labels[i], color='white', fontweight='bold')
 
     # save to io
     buf = io.BytesIO()
