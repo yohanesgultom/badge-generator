@@ -72,7 +72,7 @@ def github_forks(username):
         ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
 
     # actual plot
-    ax.set_title(title, size='xx-large')        
+    ax.set_title(title, size='xx-large', size='xx-large', weight='bold')        
     ax.barh(x, y, color=cmap(norm(y)))
 
     # save to io
