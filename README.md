@@ -16,7 +16,7 @@ Github stats badge generator
 **Top Stars**
 
 ```
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-forks" height="200">
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-stars" height="200">
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" height="200">
 ```
 
