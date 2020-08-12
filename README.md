@@ -13,6 +13,15 @@ Github stats badge generator
 
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" height="300">
 
+**Top Stars**
+
+```
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-forks" height="200">
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" height="200">
+```
+
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" height="300">
+
 **Language Bubble**
 
 ```
