@@ -15,9 +15,11 @@ import github
 matplotlib.use('Agg')
 
 # load fonts
-font_path = os.path.join('fonts','Open_Sans', 'OpenSans-Light.ttf')
-font_prop = fm.FontProperties(fname=font_path)
-rcParams['font.family'] = font_prop.get_name()
+font_dirs = ['fonts']
+font_files = fm.findSystemFonts(fontpaths=font_dirs)
+for font_file in font_files:
+    fm.fontManager.addfont(font_file)
+rcParams['font.family'] = ['OpenSans']
 
 # prevent clipped labels
 rcParams['figure.autolayout'] = True
@@ -45,7 +47,7 @@ def github_forks(username):
 
     # sort repos
     top_forked = sorted(repos, key=lambda x: x['forks'], reverse=True)
-    title = 'Most forked'
+    title = f'Top {top} forked'
     x = []
     y = []
     for repo in top_forked[:top]:
@@ -80,6 +82,56 @@ def github_forks(username):
     plt.savefig(buf, format='png')
     buf.seek(0)
     return send_file(buf, mimetype='image/png')
+
+@app.route('/github/<username>/top-stars')
+def github_stars(username):
+    # args
+    cmap_name = request.args.get('cmap', type=str, default='rainbow')
+    top = request.args.get('top', type=int, default=5)
+    w = request.args.get('w', type=int, default=8)
+    h = request.args.get('h', type=int, default=3)
+
+    # get repos
+    repos = github.get_github_repos(username)
+
+    # sort repos
+    top_forked = sorted(repos, key=lambda x: x['stargazers_count'], reverse=True)
+    title = f'Top {top} starred'
+    x = []
+    y = []
+    for repo in top_forked[:top]:
+        x.insert(0, repo['name'])
+        y.insert(0, repo['stargazers_count'])
+
+    # plot styling
+    cmap = cm.get_cmap(cmap_name)
+    norm = Normalize()
+    plt.figure(figsize=(w, h))
+    plt.tight_layout()
+    ax = plt.subplot(111)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.grid(False)
+    ax.xaxis.set_visible(False)
+    ax.tick_params(bottom=False, left=False)
+    ax.tick_params(axis='y', colors='#555555')
+
+    # add value labels
+    for i, v in enumerate(y):
+        ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
+
+    # actual plot
+    ax.set_title(title, size='xx-large', weight='bold')        
+    ax.barh(x, y, color=cmap(norm(y)))
+
+    # save to io
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
 
 @app.route('/github/<username>/bubble-lang')
 def github_lang(username):
