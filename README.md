@@ -4,6 +4,8 @@ Github stats badge generator
 
 ## Usage
 
+> Please refresh the page if you see broken images icon. It's hosted on free Heroku 😉
+
 **Top Forks**
 
 ```
