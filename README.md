@@ -1,12 +1,12 @@
-# badge-generator
+# badge-generator 🔰
 
-Github stats badge generator
+Github stats badge generator 
 
 ## Usage
 
-> Please refresh the page if you see broken images icon. It's hosted on free Heroku 😉
+> 💡 Please refresh the page if you see broken images icon. It's hosted on free Heroku 😉
 
-**Top Forks**
+**🍴 Top Forks**
 
 ```
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks" alt="top-forks" height="200">
@@ -15,7 +15,7 @@ Github stats badge generator
 
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" height="300">
 
-**Top Stars**
+**🌟 Top Stars**
 
 ```
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-stars" height="200">
@@ -24,7 +24,7 @@ Github stats badge generator
 
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" height="300">
 
-**Language Bubble**
+ **💭 Language Bubble**
 
 ```
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang" alt="top-forks" height="500">
