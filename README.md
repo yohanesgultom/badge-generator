@@ -4,7 +4,7 @@ Github stats badge generator
 
 ## Usage
 
-> 💡 Please refresh the page if you see broken images icon. It's hosted on free Heroku 😉
+> 💡 Please **refresh the page several times** if you see broken images icon. It's hosted on **free** Heroku (yes, I'm cheapskate) 😉
 
 **🍴 Top Forks**
 
