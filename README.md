@@ -7,29 +7,29 @@ Github stats badge generator
 **🍴 Top Forks**
 
 ```
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks" alt="top-forks" height="200">
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" height="300">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" width="100%" />
 
 **🌟 Top Stars**
 
 ```
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars" alt="top-stars" height="200">
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars" alt="top-stars" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" height="300">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" width="100%" />
 
  **💭 Language Bubble**
 
 ```
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang" alt="top-forks" height="500">
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
 
 ## Options
 
