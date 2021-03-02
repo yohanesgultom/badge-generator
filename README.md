@@ -4,34 +4,32 @@ Github stats badge generator
 
 ## Usage
 
-> 💡 Please **refresh the page several times** if you see broken images icon. It's hosted on **free** Heroku (yes, I'm cheapskate) 😉
-
 **🍴 Top Forks**
 
 ```
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks" alt="top-forks" height="200">
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks" alt="top-forks" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" height="200">
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" height="300">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" height="300">
 
 **🌟 Top Stars**
 
 ```
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-stars" height="200">
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars" alt="top-stars" height="200">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" height="200">
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" height="300">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" height="300">
 
  **💭 Language Bubble**
 
 ```
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang" alt="top-forks" height="500">
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang" alt="top-forks" height="500">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" height="500">
 
 ## Options
 
