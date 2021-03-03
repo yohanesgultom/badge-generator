@@ -2,6 +2,8 @@
 
 Github stats badge generator 
 
+![Build and Deploy](https://github.com/yohanesgultom/badge-generator/actions/workflows/master_badge-generator.yml/badge.svg)
+
 ## Usage
 
 **🍴 Top Forks**
