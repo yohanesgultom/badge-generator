@@ -2,7 +2,7 @@
 
 Github stats badge generator 
 
-![Build and Deploy](https://github.com/yohanesgultom/badge-generator/actions/workflows/master_badge-generator.yml/badge.svg)
+![Build and Deploy](https://github.com/yohanesgultom/badge-generator/actions/workflows/master.yml/badge.svg)
 
 ## Usage
 
