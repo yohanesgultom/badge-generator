@@ -10,30 +10,36 @@ Github stats badge generator
 
 ```
 <img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks" alt="top-forks" width="100%" />
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&top=10&font=JetBrains%20Mono" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-forks?cmap=rainbow&font=JetBrains%20Mono" alt="top-forks" width="100%" />
 
 **🌟 Top Stars**
 
 ```
 <img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars" alt="top-stars" width="100%" />
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10&font=Roboto" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/top-stars?cmap=jet&top=10&font=Roboto" alt="top-stars" width="100%" />
 
  **💭 Language Bubble**
 
 ```
 <img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang" alt="top-forks" width="100%" />
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo&font=Open%20Sans" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
+<img src="https://badge-generator.azurewebsites.net/github/yohanesgultom/bubble-lang?cmap=turbo&font=Open%20Sans" alt="top-forks" width="100%" />
 
 ## Options
+
+Possible `font`:
+
+```
+'Noto Sans JP', 'Open Sans', 'Roboto', 'JetBrains Mono'
+```
 
 Possible `cmap` (matplotlib):
 

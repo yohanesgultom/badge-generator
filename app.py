@@ -1,13 +1,13 @@
 import io
 import os
+from collections import Counter
+
 import matplotlib
-from circlify import circlify
 import numpy as np
+from circlify import circlify
+from flask import Flask, request, send_file
 from matplotlib import font_manager as fm, pyplot as plt, patches as pltp, cm, rcParams
 from matplotlib.colors import Normalize
-from flask import Flask, request, send_file, jsonify
-from matplotlib import rcParams
-from collections import Counter
 
 import github
 
@@ -15,11 +15,12 @@ import github
 matplotlib.use('Agg')
 
 # load fonts
-font_dirs = ['fonts']
-font_files = fm.findSystemFonts(fontpaths=font_dirs)
-for font_file in font_files:
-    fm.fontManager.addfont(font_file)
-rcParams['font.family'] = ['OpenSans']
+fm.fontManager.addfont(os.path.join('fonts', 'OpenSans-Light.ttf'))
+fm.fontManager.addfont(os.path.join('fonts', 'Roboto-Regular.ttf'))
+fm.fontManager.addfont(os.path.join('fonts', 'NotoSansJP-Regular.otf'))
+fm.fontManager.addfont(os.path.join('fonts', 'JetBrainsMono-Regular.ttf'))
+
+DEFAULT_FONT = 'Noto Sans JP'
 
 # prevent clipped labels
 rcParams['figure.autolayout'] = True
@@ -30,9 +31,13 @@ app = Flask(__name__)
 # https://api.github.com/users/yohanesgultom/repos?type=owner&sort=updated&direction=desc
 # Accept: application/vnd.github.v3+json
 
+
 @app.route('/')
 def index():
-    return 'Hello World!'
+    repo_url = 'https://github.com/yohanesgultom/badge-generator'
+    return '<h1>Badge Generator</h1>' + \
+           '<p>Please check <a href="' + repo_url + '">our repository</a> for the usage guide</p>'
+
 
 @app.route('/github/<username>/top-forks')
 def github_forks(username):
@@ -41,6 +46,8 @@ def github_forks(username):
     top = request.args.get('top', type=int, default=5)
     w = request.args.get('w', type=int, default=8)
     h = request.args.get('h', type=int, default=3)
+    font = request.args.get('font', type=str, default=DEFAULT_FONT)
+    rcParams['font.family'] = [font]
 
     # get repos
     repos = github.get_github_repos(username)
@@ -71,10 +78,10 @@ def github_forks(username):
 
     # add value labels
     for i, v in enumerate(y):
-        ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
+        ax.text(v - 1.0, i - 0.2, str(v), color='white', fontweight='bold')
 
     # actual plot
-    ax.set_title(title, size='xx-large', weight='bold')        
+    ax.set_title(title, size='xx-large', weight='bold')
     ax.barh(x, y, color=cmap(norm(y)))
 
     # save to io
@@ -83,6 +90,7 @@ def github_forks(username):
     buf.seek(0)
     return send_file(buf, mimetype='image/png')
 
+
 @app.route('/github/<username>/top-stars')
 def github_stars(username):
     # args
@@ -90,6 +98,8 @@ def github_stars(username):
     top = request.args.get('top', type=int, default=5)
     w = request.args.get('w', type=int, default=8)
     h = request.args.get('h', type=int, default=3)
+    font = request.args.get('font', type=str, default=DEFAULT_FONT)
+    rcParams['font.family'] = [font]
 
     # get repos
     repos = github.get_github_repos(username)
@@ -123,7 +133,7 @@ def github_stars(username):
         ax.text(v - 1.0, i - 0.1, str(v), color='white', fontweight='bold')
 
     # actual plot
-    ax.set_title(title, size='xx-large', weight='bold')        
+    ax.set_title(title, size='xx-large', weight='bold')
     ax.barh(x, y, color=cmap(norm(y)))
 
     # save to io
@@ -137,6 +147,8 @@ def github_stars(username):
 def github_lang(username):
     # args
     cmap_name = request.args.get('cmap', type=str, default='rainbow')
+    font = request.args.get('font', type=str, default=DEFAULT_FONT)
+    rcParams['font.family'] = [font]
 
     # get repos
     repos = github.get_github_repos(username)
@@ -146,7 +158,7 @@ def github_lang(username):
     for r in repos:
         if r['language']:
             lang_counter.update({r['language']: 1})
-    
+
     data = []
     labels = []
     for k, v in sorted(lang_counter.items(), key=lambda x: x[1]):
@@ -168,10 +180,10 @@ def github_lang(username):
     ax.spines['right'].set_visible(False)
     ax.spines['left'].set_visible(False)
     ax.spines['bottom'].set_visible(False)
-    ax.grid(False)    
+    ax.grid(False)
     ax.yaxis.set_visible(False)
     ax.xaxis.set_visible(False)
-    ax.set_title(title, size='xx-large', weight='bold')        
+    ax.set_title(title, size='xx-large', weight='bold')
 
     for c, label, color in zip(circles, labels, colors):
         x, y, r = c.circle
