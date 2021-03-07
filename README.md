@@ -1,8 +1,8 @@
 # badge-generator 🔰
 
-Github stats badge generator https://badge-generator-yohanes.herokuapp.com/
-
 ![Build and Deploy](https://github.com/yohanesgultom/badge-generator/actions/workflows/master.yml/badge.svg)
+
+Github stats badge generator https://badge-generator-yohanes.herokuapp.com/
 
 ## Usage
 
@@ -12,28 +12,28 @@ Github stats badge generator https://badge-generator-yohanes.herokuapp.com/
 
 ```
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks" alt="top-forks" width="100%" />
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow&top=10" alt="top-forks" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow&top=10&font=Open%20Sans" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow" alt="top-forks" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-forks?cmap=rainbow&top=10&font=Open%20Sans" alt="top-forks" width="100%" />
 
 **🌟 Top Stars**
 
 ```
 <img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars" alt="top-stars" width="100%" />
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10" alt="top-forks" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10&font=Roboto" alt="top-forks" width="100%" />
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet" alt="top-stars" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/top-stars?cmap=jet&top=10&font=Roboto" alt="top-stars" width="100%" />
 
  **💭 Language Bubble**
 
 ```
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang" alt="top-forks" width="100%" />
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang" alt="bubble-lang" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo&font=JetBrains%20Mono" alt="bubble-lang" width="100%" />
 ```
 
-<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo" alt="top-forks" width="100%" />
+<img src="https://badge-generator-yohanes.herokuapp.com/github/yohanesgultom/bubble-lang?cmap=turbo&font=JetBrains%20Mono" alt="bubble-lang" width="100%" />
 
 ## Options
 
